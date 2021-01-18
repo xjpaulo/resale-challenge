@@ -117,7 +117,7 @@ Parâmetros:
 |  `nome` | obrigatório | string | Nome do imóvel  |
 |  `endereco` | obrigatório  |  string | Endereço do imóvel  |
 |  `descricao` | obrigatório  |  string | Descrição do imóvel  |
-|  `imobiliaria_id` | obrigatório  |  int | ID da imobiliária do imóvel  |
+|  `imobiliaria_id` | obrigatório  |  int | ID da imobiliária do imóvel (Precisa existir na tabela imobiliarias) |
 |  `status` | obrigatório  |  string | Status (Ativo ou Inativo) |
 |  `tipo` | obrigatório  |  string | Tipo (Apartamento ou Casa) |
 |  `finalidade` | opcional  |  string | Finalidade (Residencial ou Escritorio) |
@@ -137,7 +137,7 @@ Parâmetros:
 |  `nome` | obrigatório | string | Nome do imóvel  |
 |  `endereco` | obrigatório  |  string | Endereço do imóvel  |
 |  `descricao` | obrigatório  |  string | Descrição do imóvel  |
-|  `imobiliaria_id` | obrigatório  |  int | ID da imobiliária do imóvel  |
+|  `imobiliaria_id` | obrigatório  |  int | ID da imobiliária do imóvel (Precisa existir na tabela imobiliarias)  |
 |  `status` | obrigatório  |  string | Status (Ativo ou Inativo) |
 |  `tipo` | obrigatório  |  string | Tipo (Apartamento ou Casa) |
 |  `finalidade` | opcional  |  string | Finalidade (Residencial ou Escritorio) |
