@@ -1,4 +1,4 @@
-# ingaia-challenge
+# resale-challenge
 
 Uma API RESTful para controle de registros de imóveis e imobiliárias através de operações CRUD. Esta API foi desenvolvida em Python, utilizando Flask, uWSGI, MySQL e Docker.
 
