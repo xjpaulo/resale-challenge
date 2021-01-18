@@ -1,7 +1,4 @@
 # resale-challenge
-<<<<<<< HEAD
-Uma API RESTful desenvolvida em Python para controle de registros de imóveis e imobiliárias através de operações CRUD.
-=======
 
 Uma API RESTful para controle de registros de imóveis e imobiliárias através de operações CRUD. Esta API foi desenvolvida em Python, utilizando Flask, uWSGI, MySQL e Docker.
 
@@ -157,5 +154,3 @@ Parâmetros:
 | Campo  | Requisição  | Tipo  | Descrição  |
 | ------------ | :------------: | ------------ | ------------ |
 |  `imovel_id` | obrigatório | int | ID do imóvel   |
-
->>>>>>> release/v1.0
