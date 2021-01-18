@@ -1,0 +1,19 @@
+web:
+  build: .
+  ports:
+    - "8080:8080"
+  links:
+    - db
+db:
+  image: mysql:latest
+  restart: always
+  container_name: db-mysql
+  ports:
+    - 3307:3306
+  environment:
+    MYSQL_DATABASE: desafio
+    MYSQL_ROOT_PASSWORD: resale123
+    MYSQL_USER: admin
+    MYSQL_PASSWORD: resale123
+  volumes:
+    - ./dump:/docker-entrypoint-initdb.d
