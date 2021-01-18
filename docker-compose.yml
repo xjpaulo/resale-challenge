@@ -10,10 +10,11 @@ db:
   container_name: db-mysql
   ports:
     - 3307:3306
+  command: --init-file /data/application/init.sql
+  volumes:
+    - ./dump/init.sql:/data/application/init.sql
   environment:
     MYSQL_DATABASE: desafio
     MYSQL_ROOT_PASSWORD: resale123
     MYSQL_USER: admin
     MYSQL_PASSWORD: resale123
-  volumes:
-    - ./dump:/docker-entrypoint-initdb.d
