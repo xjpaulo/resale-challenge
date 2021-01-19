@@ -74,7 +74,7 @@ def listar_imovel_imobiliaria(imobiliaria_id, imovel_id):
 @app.route('/imobiliarias/<int:imobiliaria_id>/', methods=['GET'])
 def listar_imobiliaria(imobiliaria_id):
     if request.method == 'GET':
-        resultado = db.listar_imovel_imobiliaria(imobiliaria_id)
+        resultado = db.listar_imobiliaria(imobiliaria_id)
         if not resultado:
             resultado = {'mensagem': 'Não há imobiliária para exibir.'}
         response = jsonify(resultado)
