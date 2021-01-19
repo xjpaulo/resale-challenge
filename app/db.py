@@ -262,3 +262,4 @@ def listar_imobiliaria(imobiliaria_id):
     finally:
         cursor.close()
         db.close()
+
