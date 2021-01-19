@@ -226,6 +226,17 @@ def erro_400(error=None):
     return response
 
 
+@app.errorhandler(405)
+def erro_405(error=None):
+    message = {
+        'status': 405,
+        'mensagem': 'Método não permitido para URL: ' + request.url,
+    }
+    response = jsonify(message)
+    response.status_code = 405
+    return response
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='8080')
 
