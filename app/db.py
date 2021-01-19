@@ -180,3 +180,85 @@ def listar_imoveis(nome, pagina, itens):
     finally:
         cursor.close()
         db.close()
+        
+        
+def listar_imoveis_imobiliaria(nome, pagina, itens, imobiliaria_id):
+    (cursor, db) = None, None
+    try:
+        db = mysql.connector.connect(
+            host=config.host,
+            user=config.user,
+            password=config.password,
+            database=config.database
+        )
+        cursor = db.cursor()
+        if nome is not None:
+            if pagina is not None and itens is not None:
+                offset = (int(pagina) - 1) * int(itens)
+                sql = "SELECT * FROM imoveis where imobiliaria_id = %s and nome like %s LIMIT %s, %s"
+                valor = (imobiliaria_id, '%' + nome + '%', offset, int(itens))
+            else:
+                sql = "SELECT * FROM imoveis where imobiliaria_id = %s and nome like %s"
+                valor = (imobiliaria_id, '%'+nome+'%')
+            cursor.execute(sql, valor)
+        else:
+            if pagina is not None and itens is not None:
+                offset = (int(pagina) - 1) * int(itens)
+                sql = "SELECT * FROM imoveis where imobiliaria_id = %s LIMIT %s, %s"
+                valor = (imobiliaria_id, offset, int(itens))
+                cursor.execute(sql, valor)
+            else:
+                sql = "SELECT * FROM imoveis where imobiliaria_id = %s"
+                valor = (imobiliaria_id,)
+                cursor.execute(sql, valor)
+        results = [dict((cursor.description[i][0], value) for i, value in enumerate(row)) for row in cursor.fetchall()]
+        return results
+    except Exception:
+        app.retornar_erro(0, 'Ocorreu um erro no banco de dados.')
+    finally:
+        cursor.close()
+        db.close()
+
+
+def listar_imovel_imobiliaria(imobiliaria_id, imovel_id):
+    (cursor, db) = None, None
+    try:
+        db = mysql.connector.connect(
+            host=config.host,
+            user=config.user,
+            password=config.password,
+            database=config.database
+        )
+        cursor = db.cursor()
+        sql = "SELECT * FROM imoveis where imobiliaria_id = %s and imovel_id = %s"
+        valor = (imobiliaria_id, imovel_id)
+        cursor.execute(sql, valor)
+        results = [dict((cursor.description[i][0], value) for i, value in enumerate(row)) for row in cursor.fetchall()]
+        return results
+    except Exception:
+        app.retornar_erro(0, 'Ocorreu um erro no banco de dados.')
+    finally:
+        cursor.close()
+        db.close()
+
+
+def listar_imobiliaria(imobiliaria_id):
+    (cursor, db) = None, None
+    try:
+        db = mysql.connector.connect(
+            host=config.host,
+            user=config.user,
+            password=config.password,
+            database=config.database
+        )
+        cursor = db.cursor()
+        sql = "SELECT * FROM imobiliarias where imobiliaria_id = %s"
+        valor = (imobiliaria_id,)
+        cursor.execute(sql, valor)
+        results = [dict((cursor.description[i][0], value) for i, value in enumerate(row)) for row in cursor.fetchall()]
+        return results
+    except Exception:
+        app.retornar_erro(0, 'Ocorreu um erro no banco de dados.')
+    finally:
+        cursor.close()
+        db.close()

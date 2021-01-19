@@ -42,6 +42,44 @@ def listar_imoveis():
         response = jsonify(resultado)
         response.status_code = 200
         return response
+        
+
+@app.route('/imobiliarias/<int:imobiliaria_id>/imoveis/', methods=['GET'])
+def listar_imoveis_imobiliaria(imobiliaria_id):
+    if request.method == 'GET':
+        nome = request.args.get('nome', None)
+        pagina = request.args.get('pagina', None)
+        itens = request.args.get('itens', None)
+        validar(nome)
+        validar_num(pagina, itens)
+        resultado = db.listar_imoveis_imobiliaria(nome, pagina, itens, imobiliaria_id)
+        if not resultado:
+            resultado = {'mensagem': 'Não há imóveis para exibir.'}
+        response = jsonify(resultado)
+        response.status_code = 200
+        return response
+
+
+@app.route('/imobiliarias/<int:imobiliaria_id>/imoveis/<int:imovel_id>/', methods=['GET'])
+def listar_imovel_imobiliaria(imobiliaria_id, imovel_id):
+    if request.method == 'GET':
+        resultado = db.listar_imovel_imobiliaria(imobiliaria_id, imovel_id)
+        if not resultado:
+            resultado = {'mensagem': 'Não há imóvel para exibir.'}
+        response = jsonify(resultado)
+        response.status_code = 200
+        return response
+
+
+@app.route('/imobiliarias/<int:imobiliaria_id>/', methods=['GET'])
+def listar_imobiliaria(imobiliaria_id):
+    if request.method == 'GET':
+        resultado = db.listar_imovel_imobiliaria(imobiliaria_id)
+        if not resultado:
+            resultado = {'mensagem': 'Não há imobiliária para exibir.'}
+        response = jsonify(resultado)
+        response.status_code = 200
+        return response
 
 
 @app.route('/imobiliarias/', methods=['POST'])
