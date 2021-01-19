@@ -29,7 +29,7 @@ $ sudo docker-compose logs --follow
 ```
 ## Funcionamento
 
-Após a instalação a API ficará disponível através da URL abaixo:
+Após a instalação, leve em conta alguns segundos para o serviço do MySQL subir e aceitar conexões. A API ficará disponível através da URL abaixo:
 
 `http://localhost:8080/`
 
