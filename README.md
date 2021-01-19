@@ -52,7 +52,7 @@ Parâmetros:
  - **Listar única imobiliária**
  
 ```
-GET localhost:8080/imobiliarias/<imobiliaria_id>
+GET localhost:8080/imobiliarias/<imobiliaria_id>/
 ```
 
 Parâmetros:
@@ -135,7 +135,7 @@ Parâmetros:
  - **Listar único imóvel**
  
 ```
-GET localhost:8080/imobiliarias/<imobiliaria_id>/imoveis/<imovel_id>
+GET localhost:8080/imobiliarias/<imobiliaria_id>/imoveis/<imovel_id>/
 ```
 
  - **Adicionar imóvel**
