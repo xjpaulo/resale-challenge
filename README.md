@@ -49,6 +49,20 @@ Parâmetros:
 |  `pagina` | opcional  |  int | Número da página que deseja visualizar  |
 | `itens` | opcional | int | Número de itens para serem exibidos por página
 
+ - **Listar única imobiliária**
+ 
+```
+GET localhost:8080/imobiliarias/<imobiliaria_id>
+```
+
+Parâmetros:
+
+| Campo  | Requisição  | Tipo  | Descrição  |
+| ------------ | :------------: | ------------ | ------------ |
+|  `nome` | opcional | string | Nome de imobiliária para filtrar na lista   |
+|  `pagina` | opcional  |  int | Número da página que deseja visualizar  |
+| `itens` | opcional | int | Número de itens para serem exibidos por página
+
  - **Adicionar imobiliária**
  
 ``` 
@@ -90,7 +104,7 @@ Parâmetros:
 
 >  Ao remover uma imobiliária, todos os imóveis vinculados à mesma também serão apagados.  
 
- - **Listar imóveis**
+ - **Listar todos os imóveis**
  
 ```
 GET localhost:8080/imobiliarias/imoveis/
@@ -103,6 +117,26 @@ Parâmetros:
 |  `nome` | opcional | string | Nome de imóvel para filtrar na lista   |
 |  `pagina` | opcional  |  int | Número da página que deseja visualizar  |
 | `itens` | opcional | int | Número de itens para serem exibidos por página
+
+ - **Listar imóveis por imobiliária**
+ 
+```
+GET localhost:8080/imobiliarias/<imobiliaria_id>/imoveis/
+```
+
+Parâmetros:
+
+| Campo  | Requisição  | Tipo  | Descrição  |
+| ------------ | :------------: | ------------ | ------------ |
+|  `nome` | opcional | string | Nome de imóvel para filtrar na lista   |
+|  `pagina` | opcional  |  int | Número da página que deseja visualizar  |
+| `itens` | opcional | int | Número de itens para serem exibidos por página
+
+ - **Listar único imóvel**
+ 
+```
+GET localhost:8080/imobiliarias/<imobiliaria_id>/imoveis/<imovel_id>
+```
 
  - **Adicionar imóvel**
  
