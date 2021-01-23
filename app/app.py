@@ -219,7 +219,7 @@ def erro_404(error=None):
 def erro_400(error=None):
     message = {
         'status': 400,
-        'mensagem': 'Request inválido. Verifique os valores dos atributos enviados.',
+        'mensagem': 'Request inválido. Verifique os valores dos atributos enviados: ' + error,
     }
     response = jsonify(message)
     response.status_code = 400
